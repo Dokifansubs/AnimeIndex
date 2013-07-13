@@ -1,133 +1,31 @@
-@color: #AAAAAA;
-
-#header {
-	color: @color;
-}
+@import "reset.less";
 
 body {
-    font-family: tahoma, arial, helvetica, sans-serif;
-    font-size: 8pt;
-    /*background: #A1BFD9;#FAFCFE;*/
-    margin: 0;
-    padding: 0;
-}
+  font-family: tahoma, arial, helvetica, sans-serif;
+  font-size: 8pt;
+  /*background: #A1BFD9;#FAFCFE;*/
 
-header {
-    margin: 0px;
-    padding: 0;
-    background: url('./images/ai_logo.png') 20px 10px no-repeat;
-    min-width: 430px;
+  margin: 0;
+  padding: 0;
 }
 
 ul, li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-header aside {
-    float: right;
-    text-align: left;
-    background: #aec9e7;
-    width: 250px;
-    padding: 10px;
-    margin: 20px 20px 0px;
-    border-radius: 5px;
+a {
+    &:link, &:active, &:visited {
+        color: #006699;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: #EE4000;
+        text-decoration: none;
+    }
 }
 
-header aside a {
-    display: inline-block;
-}
+@import "header.less";
 
-header aside h5 {
-    font-size: 1.2em;
-    margin: 0 10px 5px;
-    text-align: center;
-}
-
-header aside .uploaded,
-header aside .downloaded {
-    display: inline-block;
-    width: 49%;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-header aside .usermenu {
-    float: left;
-}
-
-header aside .usermenu a {
-    padding: 0 10px;
-}
-
-header aside .userlogin {
-    float: right;
-}
-
-header aside .uploaded {
-    color: green;
-}
-
-header aside .downloaded {
-    color: red;
-}
-
-/* Not logged in */
-
-header aside input[type=text] {
-    width: 100px;
-}
-
-header aside .username {
-    display:inline-block;
-    margin-left: 2px;
-    width: 100px;
-}
-
-header aside input[type=password] {
-    width: 90px;
-}
-
-header aside .password {
-    display:inline-block;
-    margin-left: 0px;
-    width: 90px;
-}
-
-header aside .login-form {
-    margin: 5px 0 0;
-}
-
-header aside input[type=submit] {
-    width: 55px;
-    margin-right:-1px;
-}
-
-header aside .user-forgot,
-header aside .user-register {
-    margin-top: 5px;
-    margin-bottom: -5px;
-}
-
-header aside .user-register {
-    float: right;
-}
-
-/* End Not logged in section */
-
-header ul {
-    list-style: none;
-    padding: 80px 10px 5px 10px;
-    border-bottom: 1px dotted #999999;
-}
-
-header ul li {
-    display: inline-block;
-    border-right: 1px solid #999999;
-}
-
-header ul li a {
-    padding: 0 10px;
-    font-size: 12px;
-    font-weight: bold;
-}
+@import "news.less";

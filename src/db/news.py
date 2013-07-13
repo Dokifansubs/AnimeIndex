@@ -18,4 +18,4 @@ class News(Base):
     user = relationship("User", backref=backref('news', order_by=id))
 
     def __repr__(self):
-        return "<News('%s','%s', '%s')>" % (self.username, self.fullname, self.email)
+        return "<News('%s')>" % (self.title)

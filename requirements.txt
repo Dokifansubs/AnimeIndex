@@ -1,0 +1,7 @@
+bottle
+sqlalchemy
+bottle-sqlalchemy
+mysql_python
+pyjade
+jinja2
+lesscss

@@ -15,5 +15,8 @@ class User(Base):
     created = Column(DateTime())
     last_login = Column(DateTime())
 
+    def __init__(self, *args, **kwargs):
+    	super(User, self).__init__(args, kwargs)
+
     def __repr__(self):
     	return "<User('%s','%s', '%s')>" % (self.username, self.fullname, self.email)

@@ -1,0 +1,15 @@
+header
+  aside
+    .username Username
+    .password Password
+    form.login-form(method="post", name="login", action="/user/login")
+      input(type="text")
+      input(type="password")
+      input(type="submit")
+    a.user-forgot(href="/user/recover") Forgot your password?
+    a.user-register(href="/user/register") Don't have an account?
+  nav
+    ul
+      li: a(href="/") Home
+      li: a(href="/news/") News
+      li: a(href="/torrent/") Torrents

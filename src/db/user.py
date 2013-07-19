@@ -1,5 +1,7 @@
-from sqlalchemy import Column, Integer, String, DateTime
+import bcrypt
+import re
 
+from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from engine import Base
 
 class User(Base):
@@ -9,14 +11,27 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     level = Column(Integer)
     username = Column(String(64))
-    fullname = Column(String(64))
     password = Column(String(64))
+    salt = Column(String(30))
     email = Column(String(64))
+    verified = Column(Boolean())
     created = Column(DateTime())
     last_login = Column(DateTime())
 
-    def __init__(self, *args, **kwargs):
-    	super(User, self).__init__(args, kwargs)
-
     def __repr__(self):
-    	return "<User('%s','%s', '%s')>" % (self.username, self.fullname, self.email)
+        return "<User('%s','%s')>" % (self.username, self.email)
+
+    @staticmethod
+    def hash_password(username, password, salt):
+        if salt != "":
+            return bcrypt.hashpw("%s%s" % (username, password), salt)
+        return ""
+
+    @staticmethod
+    def generate_hash():
+        return bcrypt.gensalt()
+
+    @staticmethod
+    def valid_email(email):
+        return not (email == "" or \
+                    not re.match(r"[^@]+@[^@]+\.[^@]+", email))

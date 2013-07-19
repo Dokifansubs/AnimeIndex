@@ -1,0 +1,31 @@
+extends static/templates/base
+
+block content
+  .profile-box
+    .left
+      ul
+        li: a(href="#") My Profile
+        li: a(href="#") My Torrents
+        li: a(href="#") My Index View
+        li: a(href="#") My Groups
+    .right
+      form.login-form(method="post", name="login", action="/profile/")
+        h3 View/Change Your Profile
+        .form-group
+          .group
+              label.password Change Email:
+              input(type="email", name="email", value=current_user.email)
+          .group
+            label.password Change Password:
+            input(type="password", name="password")
+          .group
+            label.password Verify Password:
+            input(type="password", name="password2")
+        .group
+          label.username Current Password:
+          input(type="password", name="current_password")
+        input(type="hidden", name="csrf", value=util.generate_csrf())
+        input.btn.btn-primary(type="submit",value="Update")
+      ul.errors
+        each item in form_errors
+          li!= item

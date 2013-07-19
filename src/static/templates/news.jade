@@ -1,0 +1,6 @@
+extends static/templates/base
+
+block content
+  each item in news
+    news = item
+    include static/templates/inlines/news_item

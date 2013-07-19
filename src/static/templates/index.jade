@@ -1,7 +1,9 @@
 extends static/templates/base
 
-
 block content
-  each item in news
-    news = item
-    include static/templates/inlines/news_item 
+  .news-article
+    .news-header: a(href="/news/") Latest News
+    .news-content
+      ul.headlights
+        each item in news
+          li: a(href="/news/#{item._id}")= item.title

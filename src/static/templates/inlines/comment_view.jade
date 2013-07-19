@@ -1,0 +1,30 @@
+each item in comments
+  comment = item
+  include static/templates/inlines/comment_item
+ul.errors
+  each item in form_errors
+    li!= item
+form(method="post").post_comment
+  input(type="hidden", name="csrf", value=util.generate_csrf())
+  if current_user
+    label.single Logged in as 
+      a(href="/profile/") #{current_user.username}
+      |. (
+      a(href="/profile/logout") Logout?
+      | )
+  else
+    .group
+      input(type="text", name="name", value=form_data.get("name"))
+      label Name (required)
+    .group
+      input(type="text", name="email", value=form_data.get("email"))
+      label Email (required) (will not be published)
+    .group
+      input(type="text", name="url", value=form_data.get("url"))
+      label Url (optional)
+  .group
+    label.single Message
+    textarea(name="content", rows="10", cols="10")= form_data.get("content", "")
+  .captcha!= util.display_captcha()
+  .group
+    input(name="submit", type="submit", value="Post Comment")

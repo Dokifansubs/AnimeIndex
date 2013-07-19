@@ -1,0 +1,21 @@
+extends static/templates/base
+
+block content
+  .register-box
+    h2 Reset password
+    p.
+      Please type in a new password below to complete the resetting of your
+      account.
+    ul.errors
+      each item in form_errors
+        li!= item
+    form.login-form(method="post", name="reset")
+      .form-group
+        .group
+          label.password Password:
+          input(type="password", name="password")
+        .group
+          label.password Verify Password:
+          input(type="password", name="password2")
+      input(type="hidden", name="csrf", value=util.generate_csrf())
+      input.btn.btn-primary(type="submit",value="Reset")

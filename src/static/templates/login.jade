@@ -1,0 +1,26 @@
+extends static/templates/base
+
+block content
+  .login-box
+    section.right
+      ul
+        li: a.user-register(href="/profile/register") Don't have an account?
+        li: p.
+          Click above to create your account in a few simple steps. Removes
+          the necessity of the captha among other things.
+        li: a.user-forgot(href="/profile/recover") Forgot your password?
+        li: p.
+          Click above to start the password recovery process.
+    section.left
+      form.login-form(method="post", name="login", action="/profile/login")
+        .group
+          label.username Username
+          input(type="text", name="username")
+        .group
+          label.password Password
+          input(type="password", name="password")
+        input(type="hidden", name="csrf", value=util.generate_csrf())
+        input.btn.btn-primary(type="submit",value="Login")
+      ul.errors
+        each item in form_errors
+          li= item

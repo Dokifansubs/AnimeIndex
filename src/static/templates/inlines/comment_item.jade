@@ -1,0 +1,14 @@
+.comment
+  .author
+    img(src=comment.author_img)
+    name = comment.username
+    if comment.user
+      name = comment.user.username
+    if comment.url
+      a(href=comment.get_url)= name
+    else
+      div= name
+  .content
+    !{comment.content}
+    .meta.
+      Posted #{comment.created}

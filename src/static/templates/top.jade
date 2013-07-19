@@ -1,15 +1,23 @@
 header
-  aside
-    .username Username
-    .password Password
-    form.login-form(method="post", name="login", action="/user/login")
-      input(type="text")
-      input(type="password")
-      input(type="submit",value="Login")
-    a.user-forgot(href="/user/recover") Forgot your password?
-    a.user-register(href="/user/register") Don't have an account?
+  //-
+    aside
+      .username Username
+      .password Password
+      form.login-form(method="post", name="login", action="/user/login")
+        input(type="text")
+        input(type="password")
+        input(type="submit",value="Login")
+      a.user-forgot(href="/user/recover") Forgot your password?
+      a.user-register(href="/user/register") Don't have an account?
   nav
     ul
       li: a(href="/") Home
       li: a(href="/news/") News
-      li: a(href="/torrent/") Torrents
+      li: a(href="/torrent/") Torrents/Browse
+      if current_user
+        li: a(href="/profile/logout") Upload new Torrent
+        li: a(href="/profile/") #{current_user.username}
+        li: a(href="/profile/logout") Logout
+      else
+        li: a(href="/profile/") Login/Register
+            

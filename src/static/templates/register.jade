@@ -1,0 +1,28 @@
+extends static/templates/base
+
+block content
+  .register-box
+    h2 Register new account
+    ul.errors
+      each item in form_errors
+        li!= item
+    form.login-form(method="post", name="login", action="/profile/register")
+      .group
+        label.username Username:
+        input(type="text", name="username", value=form_data.get("username"))
+      .form-group
+        .group
+          label.password Password:
+          input(type="password", name="password")
+        .group
+          label.password Verify Password:
+          input(type="password", name="password2")
+      .form-group
+        .group
+          label.password Email:
+          input(type="email", name="email", value=form_data.get("email"))
+        .group
+          label.password Verify email:
+          input(type="email", name="email2", value=form_data.get("email2"))
+      input(type="hidden", name="csrf", value=util.generate_csrf())
+      input.btn.btn-primary(type="submit",value="Register")

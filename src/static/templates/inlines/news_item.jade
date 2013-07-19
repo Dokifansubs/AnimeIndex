@@ -1,7 +1,14 @@
 .news-article
   .news-header
-    #{news.title}
-  .news-content
+    a(href="/news/#{news._id}")= news.title
+  div_class = "news-content"
+  if show_comments
+    div_class = "news-content news-single"
+  div(class=div_class)
     !{news.content}
-    .news-meta
+    .news-meta.
       Posted by #{news.user.fullname} on #{news.created}
+  - if show_comments
+    h2 #{comments_count} #{comments_text}
+    comments = news.comments
+    include static/templates/inlines/comment_view

@@ -1,0 +1,19 @@
+extends static/templates/base
+
+block content
+  .login-box
+    section.right
+      ul
+        li: p.
+          Type in your email address to the left and a password reset mail
+          will be sent to the address.
+    section.left
+      form.login-form(method="post", name="login", action="/profile/recover")
+        .group
+          label.username Email
+          input(type="text", name="email")
+        input(type="hidden", name="csrf", value=util.generate_csrf())
+        input.btn.btn-primary(type="submit",value="Reset Password")
+      ul.errors
+        each item in form_errors
+          li= item

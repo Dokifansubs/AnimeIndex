@@ -5,3 +5,6 @@ mysql_python
 pyjade
 jinja2
 lesscss
+whirlpool
+beaker
+recaptcha-client

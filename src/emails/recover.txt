@@ -1,0 +1,11 @@
+In order to reset your password, please click the link below:
+
+Username: %username%
+Click to reset: http://tracker.anime-index.org/profile/recover/%id%/%reset%
+
+If this message was sent in an error, or you don't recognise this,
+please safely ignore.
+
+With regards:
+Anime Index tracker staff
+http://tracker.anime-index.org

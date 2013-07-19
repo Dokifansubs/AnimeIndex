@@ -1,0 +1,10 @@
+An unknown error occured while processing %path%:
+
+%exception%
+
+Full traceback:
+
+%traceback%
+
+Regards:
+Error-san

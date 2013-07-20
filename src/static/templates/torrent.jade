@@ -1,0 +1,46 @@
+extends static/templates/base
+
+block content
+  .torrents
+    table(cellpadding=0, cellspacing=0, border=0)
+      tr.header
+        th Size
+          a.up(href="#")
+          a.down(href="#")
+        th Name
+          a.up(href="#")
+          a.down(href="#")
+        th Uploaded
+          a.up(href="#")
+          a.down.on(href="#")
+        th Status
+          a.up(href="#")
+          a.down(href="#")
+      each date_group in torrent_group
+        tr
+          th(colspan=4)
+            .date_group= date_group.date
+        each torrent in date_group.torrents
+          tr
+            td
+              a.category(href="#")=torrent.category.name
+              .options
+                a.download(href="#",title="Download")
+                a.favorite(href="#",title="Favorite and follow this series")
+                a.comments(href="#",title="Read/Write Comments")
+            td
+              .name
+                a(class=torrent.get_group()["class"],
+                  href="/torrent/#{torrent._id}").
+                  #{torrent.filename}
+                div
+                  a.user(href="/profile/#{torrent.user._id}",title="Uploader").
+                    #{torrent.user.username}
+                  if torrent.get_group()["is"]
+                      a.group(href="#",title="Fansub Group").
+                        #{torrent.get_group()["name"]}
+            td(align)
+              .status= torrent.age
+            td
+              .status= torrent.status
+              .size= torrent.size_friendly

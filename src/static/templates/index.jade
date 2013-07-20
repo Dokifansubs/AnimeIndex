@@ -1,9 +1,15 @@
 extends static/templates/base
 
 block content
-  .news-article
-    .news-header: a(href="/news/") Latest News
-    .news-content
+  .roundbox-container.news
+    .roundbox-header: a(href="/news/") News
+    .roundbox-content
+      h2
+        a(href="/news/#{important_news._id}")= important_news.title
+        span.news-meta Posted by #{important_news.user.username} on #{important_news.created}
+      p!= important_news.content
       ul.headlights
         each item in news
-          li: a(href="/news/#{item._id}")= item.title
+          li
+            a.title(href="/news/#{item._id}")= item.title
+            span.news-meta Posted by #{item.user.username} on #{item.created}

@@ -1,13 +1,13 @@
-.news-article
-  .news-header
+.roundbox-container.news
+  .roundbox-header
     a(href="/news/#{news._id}")= news.title
-  div_class = "news-content"
+  div_class = "roundbox-content"
   if show_comments
-    div_class = "news-content news-single"
+    div_class = "roundbox-content roundbox-single"
   div(class=div_class)
     !{news.content}
     .news-meta.
-      Posted by #{news.user.fullname} on #{news.created}
+      Posted by #{news.user.username} on #{news.created}
   - if show_comments
     h2 #{comments_count} #{comments_text}
     comments = news.comments

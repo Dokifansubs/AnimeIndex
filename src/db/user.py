@@ -21,6 +21,10 @@ class User(Base):
     def __repr__(self):
         return "<User('%s','%s')>" % (self.username, self.email)
 
+    @property
+    def _id(self):
+        return str(self.id)
+
     @staticmethod
     def hash_password(username, password, salt):
         if salt != "":

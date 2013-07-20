@@ -1,5 +1,6 @@
 /* News */
 
+
 section {
 
     h1 {
@@ -8,89 +9,34 @@ section {
         font-weight: bold;
     }
 
-    .news-article {
-        margin: 10px 0;
-
-        .news-header {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333333;
-            margin: 20px 0 -6px 35px;
-            padding: 5px 0 0 50px;
-            height: 26px;
-            width: 330px;
-            float:left;
-            background: url("../images/news-header.png") no-repeat top left;
-        }
-
-        .news-header .news-admin {
-            font-size: 0.8em;
+    .news {
+        .news-meta {
+            font-size: 10px;
+            margin: 20px 0 5px;
+            color: #555555;
             font-weight: normal;
         }
 
-        .news-content {
-            border: 1px solid #5e86c1;
-            border-radius: 10px;
-            padding: 10px 10px 10px;
-            margin: 0 20px 0;
-            font-size: 1.1em;
-            clear: left;
+        ul.headlights {
+            margin: 25px 0 10px 0;
 
-            &.news-single {
-                border-radius: 0px;
-                border-right: none;
-                border-left: none;
-                padding-bottom: 10px;
-                border-bottom: 1px dotted #5e86c1;
-            }
-
-            ul.headlights {
-                margin: 0 0 10px 0;
-
-                li {
-                    font-size: 1.1em;
-                    font-weight: bold;
-                    margin: 0 0 10px;
-                }
+            li {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin: 0 0 10px;
             }
         }
 
-        .news-meta {
-            color: 415361;
-            font-size: 0.9em;
-            margin: 20px 0 -5px;
-            color: #333333;
+        ul.headlights, h2 {
+            .news-meta {
+                padding-left: 10px;
+            }
         }
 
         h2 {
-            font-size: 1.5em;
-            margin: 20px 20px 30px 25px;
+            font-size: 1.4em;
+            margin: 0px 20px 10px 25px;
             font-weight: bold;
-            color: #333333;
-        }
-    }
-
-    .comment {
-        padding: 0 0 0 95px;
-        margin: 10px 20px;
-        border-bottom: 1px dotted #5e86c1;
-
-        .author {
-            float: left;
-            width: 80px;
-            margin-left: -90px;
-        }
-
-        .content {
-            border-left: 1px dotted #5e86c1;
-            padding-left: 10px;
-            font-size: 1.1em;
-        }
-
-        .meta {
-            clear: left;
-            font-size: 0.9em;
-            margin: 15px 0 15px;
             color: #333333;
         }
     }

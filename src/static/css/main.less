@@ -16,7 +16,7 @@ ul, li {
 
 a {
     &:link, &:active, &:visited {
-        color: #006699;
+        color: #08366e;
         text-decoration: none;
     }
 
@@ -35,6 +35,43 @@ ul.errors {
   }
 }
 
+.roundbox-container {
+  margin: 10px 0;
+
+  .roundbox-header {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333333;
+    margin: 20px 0 -6px 35px;
+    padding: 5px 0 0 50px;
+    height: 26px;
+    width: 330px;
+    float:left;
+    background: url("../images/news-header.png") no-repeat top left;
+    
+    .admin {
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+  }
+  .roundbox-content {
+    .rounded(10px);
+    border: 1px solid #5e86c1;
+    padding: 10px 10px 0px;
+    margin: 0 20px 0;
+    font-size: 1.1em;
+    clear: left;
+
+    &.roundbox-single {
+      .rounded(0px);
+      border-right: none;
+      border-left: none;
+      padding-bottom: 10px;
+      border-bottom: 1px dotted #5e86c1;
+    }
+  }
+}
+
 @import "header.less";
 
 @import "news.less";
@@ -42,5 +79,13 @@ ul.errors {
 @import "comments.less";
 
 @import "profile.less";
+
+@import "torrent.less";
+
+footer {
+  text-align: center;
+  color: #666666;
+  font-size: 0.8em;
+}
 
 @import "common.less";

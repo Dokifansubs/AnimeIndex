@@ -18,8 +18,9 @@ def static(filename):
 @route('/')
 @default
 def index(db):
-    news = db.query(News).order_by(News.id.desc())[0:3]
-    return render(news=news)
+    important_news = db.query(News).order_by(News.id.desc()).first()
+    news = db.query(News).order_by(News.id.desc())[1:4]
+    return render(news=news, important_news=important_news)
 
 @error(404)
 def error404(error):

@@ -16,7 +16,6 @@ def profile(db, user):
     return render("profile")
 
 
-@post('/profile')
 @post('/profile/')
 @default
 def profile_submit(db, user):

@@ -13,7 +13,7 @@ from mail_helper import send_email
 def profile(db, user):
     if user == None:
         return profile_login_view(db)
-    return render("profile")
+    return render("profile/profile")
 
 
 @post('/profile/')
@@ -107,7 +107,7 @@ def recover_reset_view(db, user_id, reset_link):
             """There was an unknown error while attempting to reset your account.""",
             """If the problem persist, please let us know on admin@anime-index.org
                so we can take a look at it."""])
-    return render("reset")
+    return render("profile/reset")
 
 
 @post('/profile/recover/<user_id:int>/<reset_link:path>')
@@ -150,7 +150,7 @@ def recover_reset_submit(db, user_id, reset_link):
 @route('/profile/recover')
 @default
 def recover_view(db):
-    return render("recover")
+    return render("profile/recover")
 
 
 @post('/profile/recover')
@@ -188,7 +188,7 @@ def registered_view(db):
 @route('/profile/register')
 @default
 def register_view(db):
-    return render("register", form_data=request.forms)
+    return render("profile/register", form_data=request.forms)
 
 
 @post('/profile/register')
@@ -247,7 +247,7 @@ def register_submit(db):
 @route('/profile/login')
 @default
 def profile_login_view(db):
-    return render("login")
+    return render("profile/login")
 
 
 @post('/profile/login')

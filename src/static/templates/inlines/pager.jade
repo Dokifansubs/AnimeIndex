@@ -1,0 +1,32 @@
+ul
+  if pager.is_first
+    li.red first
+  else
+    li: a(href=pager.first_page()) first
+  if pager.display_previous
+    li: a(href=pager.previous_page()) prev
+  else
+    li prev
+  if pager.is_first
+    li.red 1
+  else
+    li: a(href=pager.first_page()) 1
+
+  each url, cls, text in pager.get_pages()
+    if url == false
+      li(class=cls)= text
+    else
+      li(class=cls): a(href=url)= text
+
+  if pager.is_last and pager.last_page_number > 1
+    li.red= pager.last_page_number
+  elif pager.last_page_number > 1
+    li: a(href=pager.last_page())= pager.last_page_number
+  if pager.display_next
+    li: a(href=pager.next_page()) next
+  else
+    li next
+  if pager.is_last
+    li.red last
+  else
+    li: a(href=pager.last_page()) last

@@ -1,9 +1,11 @@
 import inspect
 import functools
 
-from bottle import request, redirect
+from sqlalchemy.orm import sessionmaker
+from bottle import request, redirect, HTTPError
 from jadeview import template, view
 
+import sys
 import settings
 from util import UtilClass
 from db import User
@@ -12,15 +14,19 @@ def default(*args, **kwargs):
     def decorator(func):
         @functools.wraps(func)
         def wrapper(db, *args, **kwargs):
+            if type(db) is HTTPError:
+                args = (db,) + args
+                from db import engine
+                db = sessionmaker(bind=engine)()
+
             logged_in_user = request.environ.get('beaker.session').get("_user", None)
+
             if logged_in_user != None:
                 logged_in_user = db.query(User).filter_by(username=logged_in_user).first()
                 request.environ["_logged_in_user"] = logged_in_user
 
             if db not in args:
                 args = (db,) + args
-
-
 
             if request.method == "POST" and not UtilClass.is_csrf_correct():
                 request.environ["_form_errors"] = ["CSRF is incorrect. Please try again."]

@@ -11,7 +11,7 @@ class News(Base):
     __table_args__ = {'mysql_engine':'InnoDB'}
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('xbtit_users.id'))
 
     created = Column(DateTime())
     title = Column(String(100))
@@ -31,7 +31,7 @@ class NewsComment(Base):
     __table_args__ = {'mysql_engine':'InnoDB'}
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user.id'))
+    user_id = Column(Integer, ForeignKey('xbtit_users.id'))
     news_id = Column(Integer, ForeignKey('news.id'))
 
     username = Column(String(64))

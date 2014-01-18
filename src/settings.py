@@ -1,7 +1,7 @@
-MYSQL_HOST = "localhost"
-MYSQL_USER = "user"
-MYSQL_PASSWORD = "mypassword"
-MYSQL_DATABASE = "database"
+MYSQL_HOST = "127.0.0.1"
+MYSQL_USER = "tracker"
+MYSQL_PASSWORD = "gMeDPm74ecBgRTXg"
+MYSQL_DATABASE = "ai_tracker"
 
 TITLE = "Anime Index"
 SECRET_KEY = "my ultra secret string."
@@ -11,7 +11,7 @@ COOKE_KEY = "This is my cookie key to sign stuff."
 CAPTCHA_PUBLIC_KEY = "6Le8qeQSAAAAAARmO_t7zOarKIbvSFUEeJ7h_kre"
 CAPTCHA_PRIVATE_KEY = "6Le8qeQSAAAAAGeJ5KlRxKbNxGKtj-Wfmd179GBU"
 
-ADMIN = "admin@localhost"
+ADMIN = "jonatan@nilsson.is"
 
 SMTP_HOST = "smtp-host"
 SMTP_PORT = 25

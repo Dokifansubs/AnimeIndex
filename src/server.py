@@ -23,7 +23,8 @@ def index(db):
     return render(news=news, important_news=important_news)
 
 @error(404)
-def error404(error):
+@default
+def error404(db, error):
     return render("message", message=[
         "The requested page or file was not found.",
         """If you're trying to open a torrent file, you either don't have permission

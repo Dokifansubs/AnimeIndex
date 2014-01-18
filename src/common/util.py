@@ -1,5 +1,9 @@
+import urllib
+
 from recaptcha.client import captcha
 from bottle import request
+
+from pprint import pprint
 
 import settings
 
@@ -16,6 +20,15 @@ class UtilClass(object):
             s["_csrf_token"] = "".join(random.choice(symbols) for x in range(28))
             s.save()
         return s["_csrf_token"]
+
+    @staticmethod
+    def link(input, remove_page=False):
+        if remove_page:
+            request.query.pop('page', None)
+        path = request.path + "?"
+        query = dict(request.query.items() + input.items()).items()
+        path += "&".join(x[0] + "=" + urllib.quote(x[1], '') for x in query)
+        return path
 
     @staticmethod
     def is_csrf_correct():

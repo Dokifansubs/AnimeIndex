@@ -25,20 +25,20 @@ block content
                 a.download(href="#",title="Download")
                 //-a.favorite(href="#",title="Favorite and follow this series")
                 a.comments(href="#",title="Read/Write Comments")
+                a.user(href="/profile/#{torrent.user._id}",title="Uploader",title=torrent.user.username)
             td
               .name
                 a(class=torrent.get_group()["class"],
                   href="/torrent/#{torrent._id}").
                   #{torrent.safe_name}
-                div
-                  a.user(href="/profile/#{torrent.user._id}",title="Uploader").
-                    #{torrent.user.username}
-                  if torrent.get_group()["is"]
-                      a.group(href="#",title="Fansub Group").
-                        #{torrent.get_group()["name"]}
-                  .size= torrent.size_friendly
+                span -
+                .size= torrent.size_friendly
+                if torrent.get_group()["is"]
+                  a.group(href="#",title="Fansub Group").
+                    #{torrent.get_group()["name"]}
+                  
             td(align)
-              .date(class='new' if torrent.is_recent)= torrent.age if date_group.date else torrent.created
+              .date(class='new' if torrent.is_recent)= torrent.created
             td
               .status= torrent.status
     .pager

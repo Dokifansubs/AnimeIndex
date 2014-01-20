@@ -46,7 +46,7 @@ class Magnet(Base):
 
     id = Column(Integer, primary_key=True)
     info_hash = Column('info_hash', String(40), ForeignKey('xbtit_files.info_hash'))
-    magnet = Column('magnet', String(254))
+    magnet = Column('magnet', String(2048))
 
     torrent = relationship("Torrent", backref=backref('magnet', uselist=False))
 
@@ -88,7 +88,7 @@ class Torrent(Base):
 
     @hybrid_property
     def safe_name(self):
-        return self.filename.decode('utf8').replace('&amp;', '&')
+        return self.filename.decode('utf8', "replace").replace('&amp;', '&')
 
     @property
     def _id(self):
@@ -138,9 +138,12 @@ class Torrent(Base):
         paramstr = urllib.urlencode(params, True)
         magnet = Magnet(torrent=self,
                         magnet="magnet:?%s" % paramstr)
-        db.add(magnet)
-        self.magnet = magnet
-        db.commit()
+        try:
+            db.add(magnet)
+            self.magnet = magnet
+            db.commit()
+        except:
+            pass
 
     def get_magnet(self):
         return self.magnet.magnet

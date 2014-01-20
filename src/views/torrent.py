@@ -2,7 +2,7 @@ import datetime
 from bottle import route, request, redirect, post
 from common import render, default, paginator
 
-from db import User, Torrent, Category, TorrentDateGroup
+from db import User, Torrent, Category, TStatus, TorrentDateGroup
 from mail_helper import send_email
 
 @route('/torrent/')
@@ -33,6 +33,8 @@ def torrent_view(db, torrent_id=None):
         sorting = Torrent.size
     elif sort == "name":
         sorting = Torrent.filename
+    elif sort == "status":
+        sorting = TStatus.seeders
     else:
         sorting = Torrent.created
         sort = "date"
@@ -43,15 +45,26 @@ def torrent_view(db, torrent_id=None):
         sorting = sorting.desc()
 
     query = db.query(Torrent).join(Torrent.category)
-    if request.query.get("cat", "") != "":
-        title += " " + request.query.get("cat", "")
-        query = query.filter(Category.name == request.query.get("cat", ""))
+    if sort == "status":
+        query = query.join(Torrent.status)
+
+    selected_cat = "all"
+
+    if request.query.get("cat", "") != "" and request.query.get("cat", "").lower() != "all":
+        query = query.filter(Category.name == request.query.get("cat"))
+        title = request.query.get("cat") + " " + title
+        selected_cat = request.query.get("cat")
+
+    if request.query.get("q", "") != "":
+        for x in request.query.get("q").split(" "):
+            query = query.filter(Torrent.filename.like("%" + x + "%"))
+        title = request.query.get("q") + " &laquo; " + title[:-1] + " Search"
 
     pager = paginator(query.order_by(sorting), page, per_page)
 
     torrents = pager.items
     groups = []
-    if len(torrents) > 0 and sort == "date":
+    if len(torrents) > 0 and sort == "date" and False:
         groups.append(TorrentDateGroup(torrents[0].created.date(),
                                        torrents[0]))
         for i in range(1, len(torrents)):
@@ -64,4 +77,17 @@ def torrent_view(db, torrent_id=None):
         groups = [TorrentDateGroup(torrents=torrents)]
     if asc:
         sort = "+" + sort
-    return render("torrent/torrent", title, torrent_group=groups, sort=sort, pager=pager)
+
+    for i in range(0, len(torrents)):
+        torrents[i].generate_magnet(db)
+
+    categories = db.query(Category).all()
+
+    return render("torrent/torrent",
+                  title,
+                  torrent_group=groups,
+                  sort=sort,
+                  pager=pager,
+                  categories=categories,
+                  selected_cat=selected_cat,
+                  searching=request.query.get("q", ""))

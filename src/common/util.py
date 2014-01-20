@@ -22,10 +22,12 @@ class UtilClass(object):
         return s["_csrf_token"]
 
     @staticmethod
-    def link(input, remove_page=False):
+    def link(input, remove_page=False, prefix="/torrent/"):
         if remove_page:
             request.query.pop('page', None)
         path = request.path + "?"
+        if (prefix != None):
+            path = prefix + "?"
         query = dict(request.query.items() + input.items()).items()
         path += "&".join(x[0] + "=" + urllib.quote(x[1], '') for x in query)
         return path

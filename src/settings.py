@@ -11,6 +11,8 @@ COOKE_KEY = "This is my cookie key to sign stuff."
 CAPTCHA_PUBLIC_KEY = "6Le8qeQSAAAAAARmO_t7zOarKIbvSFUEeJ7h_kre"
 CAPTCHA_PRIVATE_KEY = "6Le8qeQSAAAAAGeJ5KlRxKbNxGKtj-Wfmd179GBU"
 
+TORRENT_HOME = "/Users/jonatan/doki/AnimeIndex"
+
 ADMIN = "jonatan@nilsson.is"
 
 SMTP_HOST = "smtp-host"

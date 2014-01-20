@@ -39,3 +39,4 @@ env
 settings.py
 *.css
 src/data
+*.btf

@@ -1,0 +1,8 @@
+.torrent-search
+  form.login-form(method="get", name="search", action="/torrent/")
+    input(type="text", name="q", value=searching, placeholder="Search...")
+    select(name="cat")
+      option(value="All") All Categories
+      each cat in categories
+        option(value=cat.name, selected="selected" if selected_cat == cat.name)=cat.name
+    input.btn.btn-small(type="submit",value="Search")

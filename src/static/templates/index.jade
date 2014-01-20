@@ -13,3 +13,5 @@ block content
           li
             a.title(href="/news/#{item._id}")= item.title
             span.news-meta Posted by #{item.user.username} on #{item.created}
+  include static/templates/inlines/torrent_search
+  include static/templates/inlines/torrents

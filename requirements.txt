@@ -8,3 +8,4 @@ lesscss
 beaker
 recaptcha-client
 bcrypt
+bencode

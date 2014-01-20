@@ -1,0 +1,46 @@
+.torrents
+  .pager
+    h4 Showing #{pager.first} to #{pager.last} of #{pager.final}
+    include static/templates/inlines/pager
+  table(cellpadding=0, cellspacing=0, border=0)
+    - var sorting = [('size', 'Size'), ('name', 'Name'), ('date', 'Age'), ('status', 'Seeders')]
+    each key, val in sorting
+      th(colspan=3 if key == 'status')
+        = val
+        a.up(href=util.link({'sort': '+' + key}, true), class='on' if key == sort[1:])
+        a.down(href=util.link({'sort': key}, true), class='on' if key == sort)
+    each date_group in torrent_group
+      if date_group.date
+        tr: th(colspan=6)
+          .date_group= date_group.date
+      each torrent in date_group.torrents
+        tr
+          td
+            a.category(href=util.link({'cat': torrent.category.name}, true))=torrent.category.name
+            //-.options
+              //-a.favorite(href="#",title="Favorite and follow this series")
+              //-a.comments(href="#",title="Read/Write Comments")
+              //-a.user(href="/profile/#{torrent.user._id}",title="Uploader",title=torrent.user.username)
+          td
+            .options
+              a.download(href="/#{torrent._id}",title="Download")
+              a.magnet(href="#{torrent.get_magnet()}",title="Magnet")
+            .name
+              a(class=torrent.get_group()["class"],
+                href="/#{torrent._id}").
+                #{torrent.safe_name}
+              .size= torrent.size_friendly
+              if torrent.get_group()["is"]
+                a.group(href="#",title="Fansub Group").
+                  #{torrent.get_group()["name"]}
+                
+          td(align)
+            .date(class='new' if torrent.is_recent)= torrent.age
+          td(align='right')
+            .seeders(class='none' if torrent.status.seeders == 0)= torrent.status.seeders
+          td /
+            .leechers #{torrent.status.leechers}
+          td(align='right')
+            .completed= torrent.status.completed
+  .pager
+    include static/templates/inlines/pager

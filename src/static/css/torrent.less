@@ -1,5 +1,25 @@
 @import "elements.less";
 
+.torrent-search {
+    margin: 20px 20px 0;
+    padding: 0 20px;
+
+    input, select {
+        display: inline-block;
+        padding: 2px;
+        margin-right: 10px;
+    }
+
+    select {
+        padding: 3px 10px;
+    }
+
+    input.btn {
+        margin-top: -3px;
+        padding: 0px 10px 1px;
+    }
+}
+
 .torrents {
     margin: 20px;
 
@@ -44,6 +64,8 @@
             background: #eff8ff;
             font-size: 1.1em;
             border-top: 1px solid #989da3;
+            vertical-align: middle;
+            height: 35px;
 
             a.category {
                 font-weight: italic;
@@ -59,18 +81,66 @@
             }
 
             .options {
+                display: inline-block;
+
                 a {
-                    width: 16px;
-                    height: 16px;
-                    margin: 8px 3px 0;
+                    width: 24px;
+                    height: 24px;
+                    margin: 0;
                     display: inline-block;
 
-                    &.user { background: url('../images/profile_small.png') no-repeat center top; }
-                    &.download { background: url('../images/download_small.png') no-repeat center top; }
-                    &.favorite { background: url('../images/favorite_small.png') no-repeat center top; }
-                    &.comments { background: url('../images/chat_small.png') no-repeat center top; }
+                    &.user { background: url('../images/profile_small.png') no-repeat center bottom; }
+                    &.download { background: url('../images/save.png') no-repeat center bottom; }
+                    &.magnet { background: url('../images/magnet.png') no-repeat center bottom; }
+                    &.favorite { background: url('../images/favorite_small.png') no-repeat center bottom; }
+                    &.comments { background: url('../images/chat_small.png') no-repeat center bottom; }
                 }
             }
+
+            .name {
+                display: inline-block;
+                line-height: 16px;
+                vertical-align: top;
+
+                a {
+                    line-height: 32px;
+                    display: inline-block;
+                    font-weight: bold;
+                    font-size: 1.1em;
+
+                    &.verified {
+                        background: url('../images/checked_small.png') no-repeat center left;
+                        padding-left: 20px;
+                    }
+                    &.unknown {
+                        background: url('../images/denied_small.png') no-repeat center left;
+                        padding-left: 20px;
+                    }
+                }
+                .size { display: inline-block; color: #800080; margin-left: 10px; }
+                div {
+                    a, div {
+                        display: inline-block;
+                        padding-left: 25px;
+                        padding-top: 3px;
+                        margin: 10px 0 0;
+                        font-weight: normal;
+
+                        
+                        &.group {
+                            margin-left: 20px;
+                            background: url('../images/group_small.png') no-repeat center left;
+                        }
+                    }
+                }
+            }
+
+            .seeders {
+                color: #006600; margin: 0 -8px 0 8px;
+                &.none { color: #660000; }
+            }
+            .leechers { color: #660000; display: inline-block; }
+            .completed { color: #000066; margin-right: 10px; }
         }
 
         tr:nth-child(odd) {
@@ -78,39 +148,6 @@
         }
         tr:first-child {
             td { border-top: none; }
-        }
-
-        .name {
-            a {
-                display: inline-block;
-                font-weight: bold;
-                font-size: 1.1em;
-
-                &.verified {
-                    background: url('../images/checked_small.png') no-repeat center left;
-                    padding-left: 20px;
-                }
-                &.unknown {
-                    background: url('../images/denied_small.png') no-repeat center left;
-                    padding-left: 20px;
-                }
-            }
-            .size { display: inline-block; color: #800080; margin-left: 10px; }
-            div {
-                a, div {
-                    display: inline-block;
-                    padding-left: 25px;
-                    padding-top: 3px;
-                    margin: 10px 0 0;
-                    font-weight: normal;
-
-                    
-                    &.group {
-                        margin-left: 20px;
-                        background: url('../images/group_small.png') no-repeat center left;
-                    }
-                }
-            }
         }
     }
 

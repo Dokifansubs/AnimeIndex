@@ -20,7 +20,33 @@ def static(filename):
 def index(db):
     important_news = db.query(News).order_by(News.id.desc()).first()
     news = db.query(News).order_by(News.id.desc())[1:4]
-    return render(news=news, important_news=important_news)
+
+    query = db.query(Torrent).join(Torrent.category)
+    pager = paginator(query.order_by(Torrent.created.desc()), 1, 50)
+    torrents = pager.items
+    groups = []
+    if len(torrents) > 0:
+        groups.append(TorrentDateGroup(torrents[0].created.date(),
+                                       torrents[0]))
+        for i in range(1, len(torrents)):
+            t = torrents[i]
+            if t.created.date() == groups[-1].date:
+                groups[-1].torrents.append(t)
+            else:
+                groups.append(TorrentDateGroup(t.created.date(), t))
+    else:
+        groups = [TorrentDateGroup(torrents=torrents)]
+    for i in range(0, len(torrents)):
+        torrents[i].generate_magnet(db)
+
+    categories = db.query(Category).all()
+
+    return render(news=news,
+                  important_news=important_news,
+                  torrent_group=groups,
+                  sort="date",
+                  pager=pager,
+                  categories=categories)
 
 @error(404)
 @default

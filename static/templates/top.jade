@@ -1,13 +1,10 @@
 header
   nav
-    ul
-      li: a(href="/") Home
-      li: a(href="/news/") News
-      li: a(href="/torrent/") Torrents/Browse
-      if current_user
-        li: a(href="/torrent/upload") Upload new Torrent
-        li: a(href="/profile/") #{current_user.username}
-        li: a(href="/profile/logout") Logout
-      else
-        li: a(href="/profile/") Login/Register
-            
+    .row
+      .col-md-3.col-sm-4
+        a.logo(href='/') Index
+      .col-md-7.col-sm-6
+        ul.nav.nav-tabs
+          li: a(href='/') Home
+          li: a(href='/torrent') Torrents/Browse
+          li: a(href='/login') Login

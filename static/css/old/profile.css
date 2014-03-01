@@ -1,0 +1,185 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.login-box {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background: #aec9e7;
+  max-width: 450px;
+  min-width: 220px;
+  margin: 20px auto 0px;
+  padding-right: 270px;
+}
+.login-box .btn {
+  margin: 10px;
+}
+.login-box .left {
+  border-right: 1px dotted #9eb6d1;
+  padding: 10px;
+}
+.login-box .left label {
+  margin-right: 10px;
+}
+.login-box .left input[type="text"],
+.login-box .left input[type="password"] {
+  width: 200px;
+}
+.login-box .right {
+  float: right;
+  margin-right: -270px;
+  width: 250px;
+  padding: 10px;
+  text-align: left;
+}
+.login-box .right a {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+.login-box .right p {
+  margin-bottom: 15px;
+}
+.register-box {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background: #aec9e7;
+  max-width: 450px;
+  min-width: 220px;
+  margin: 20px auto 0px;
+  padding-right: 270px;
+  padding: 10px;
+  text-align: left;
+}
+.register-box .btn {
+  margin: 10px;
+}
+.register-box .left {
+  border-right: 1px dotted #9eb6d1;
+  padding: 10px;
+}
+.register-box .left label {
+  margin-right: 10px;
+}
+.register-box .left input[type="text"],
+.register-box .left input[type="password"] {
+  width: 200px;
+}
+.register-box .right {
+  float: right;
+  margin-right: -270px;
+  width: 250px;
+  padding: 10px;
+  text-align: left;
+}
+.register-box .right a {
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+.register-box .right p {
+  margin-bottom: 15px;
+}
+.register-box h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20px;
+}
+.register-box label {
+  display: inline-block;
+  margin-right: 15px;
+  text-align: right;
+  width: 130px;
+}
+.register-box input[type="text"],
+.register-box input[type="password"],
+.register-box input[type="email"] {
+  width: 250px;
+}
+.register-box .btn {
+  margin: 30px auto 10px;
+  text-align: center;
+  display: block;
+}
+.register-box .group {
+  margin: 10px 0;
+}
+.register-box .form-group {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px dotted #DDDDDD;
+  margin: 10px auto;
+}
+.register-box p.description {
+  margin: 10px 0;
+  font-size: 1.0em;
+  font-weight: bold;
+}
+.profile-box {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  background: #aec9e7;
+  max-width: 650px;
+  min-width: 320px;
+  margin: 20px auto 0px;
+  padding-left: 270px;
+}
+.profile-box h3 {
+  font-size: 1.5em;
+  color: #333333;
+  margin: 0 10px 15px;
+}
+.profile-box .btn {
+  margin: 10px 10px;
+}
+.profile-box .left {
+  float: left;
+  margin-left: -270px;
+  width: 250px;
+  padding: 10px;
+  text-align: left;
+}
+.profile-box .left a {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+}
+.profile-box .left p {
+  margin-bottom: 15px;
+}
+.profile-box .group {
+  margin: 10px 0;
+}
+.profile-box .form-group {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  border: 1px dotted #DDDDDD;
+  margin: 10px auto;
+}
+.profile-box .right {
+  text-align: left;
+  border-left: 1px dotted #9eb6d1;
+  padding: 10px;
+}
+.profile-box .right label {
+  margin-left: 10px;
+  width: 150px;
+  display: inline-block;
+}
+.profile-box .right input[type="text"],
+.profile-box .right input[type="email"],
+.profile-box .right input[type="password"] {
+  width: 200px;
+}

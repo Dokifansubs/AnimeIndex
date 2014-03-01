@@ -1,0 +1,30 @@
+/* News */
+section h1 {
+  font-size: 2.3em;
+  margin: 20px 20px 0 20px;
+  font-weight: bold;
+}
+section .news .news-meta {
+  font-size: 10px;
+  margin: 20px 0 5px;
+  color: #555555;
+  font-weight: normal;
+}
+section .news ul.headlights {
+  margin: 25px 0 10px 0;
+}
+section .news ul.headlights li {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+section .news ul.headlights .news-meta,
+section .news h2 .news-meta {
+  padding-left: 10px;
+}
+section .news h2 {
+  font-size: 1.4em;
+  margin: 0px 20px 10px 25px;
+  font-weight: bold;
+  color: #333333;
+}

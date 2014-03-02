@@ -1,0 +1,20 @@
+{
+  "title": "AI Tracker",
+  "mysql": {
+    "host": "localhost",
+    "user": "tracker",
+    "password": "password",
+    "database": "tracker",
+    "prefix": "xbtit_"
+  },
+  "redis": {
+    "persistent": {
+      "port": 6379,
+      "host": "127.0.0.1"
+    },
+    "cache": {
+      "port": 6379,
+      "host": "127.0.0.1"
+    }
+  }
+}

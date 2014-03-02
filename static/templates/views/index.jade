@@ -1,0 +1,20 @@
+extend ../base
+
+block content
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title= news_item.title
+        small.panel-title--small Posted by 
+          a(href='/users/#{news_item.user_id}')= news_item.username
+          |  on #{moment(news_item.created).format('YYYY/MM/DD')}
+    .panel-body= news_item.content
+        //- a(href="/news/#{important_news._id}")= important_news.title
+        //- span.news-meta Posted by #{important_news.user.username} on #{important_news.created}
+      //- p!= important_news.content
+      ul.headlights
+        //- each item in news
+        //-   li
+        //-     a.title(href="/news/#{item._id}")= item.title
+        //-     span.news-meta Posted by #{item.user.username} on #{item.created}
+  //- include static/templates/inlines/torrent_search
+  //- include static/templates/inlines/torrents

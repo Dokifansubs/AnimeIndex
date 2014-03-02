@@ -1,0 +1,197 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.torrent-search {
+  margin: 20px 20px 0;
+  padding: 0 20px;
+}
+.torrent-search input,
+.torrent-search select {
+  display: inline-block;
+  padding: 2px;
+  margin-right: 10px;
+}
+.torrent-search select {
+  padding: 3px 10px;
+}
+.torrent-search input.btn {
+  margin-top: -3px;
+  padding: 0px 10px 1px;
+}
+.torrents {
+  margin: 20px;
+}
+.torrents table {
+  width: 100%;
+  border: 1px solid #000000;
+}
+.torrents table th {
+  background: #4175a5;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7aa5c5), color-stop(1, #4175a5));
+  background: -ms-linear-gradient(bottom, #7aa5c5, #4175a5);
+  background: -moz-linear-gradient(center bottom, #7aa5c5 0%, #4175a5 100%);
+  background: -o-linear-gradient(#4175a5, #7aa5c5);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4175a5', endColorstr='#7aa5c5', GradientType=0);
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 6px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+}
+.torrents table th a {
+  width: 22px;
+  height: 12px;
+  display: inline-block;
+}
+.torrents table th a.up {
+  margin-left: 5px;
+  background: url('../images/up_off_arrow.png') no-repeat center top;
+}
+.torrents table th a.up.on {
+  background: url('../images/up_arrow.png') no-repeat center top;
+}
+.torrents table th a.down {
+  background: url('../images/down_off_arrow.png') no-repeat center top;
+}
+.torrents table th a.down.on {
+  background: url('../images/down_arrow.png') no-repeat center top;
+}
+.torrents table .header th {
+  padding: 3px;
+  text-align: left;
+}
+.torrents table td {
+  padding: 6px;
+  background: #eff8ff;
+  font-size: 1.1em;
+  border-top: 1px solid #989da3;
+  vertical-align: middle;
+  height: 35px;
+}
+.torrents table td a.category {
+  font-weight: italic;
+  text-align: center;
+  display: block-inline;
+  margin: 0 auto;
+}
+.torrents table td .date {
+  font-size: 13px;
+  text-align: center;
+}
+.torrents table td .date.new {
+  color: #006600;
+}
+.torrents table td .options {
+  display: inline-block;
+}
+.torrents table td .options a {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  display: inline-block;
+}
+.torrents table td .options a.user {
+  background: url('../images/profile_small.png') no-repeat center bottom;
+}
+.torrents table td .options a.download {
+  background: url('../images/save.png') no-repeat center bottom;
+}
+.torrents table td .options a.magnet {
+  background: url('../images/magnet.png') no-repeat center bottom;
+}
+.torrents table td .options a.favorite {
+  background: url('../images/favorite_small.png') no-repeat center bottom;
+}
+.torrents table td .options a.comments {
+  background: url('../images/chat_small.png') no-repeat center bottom;
+}
+.torrents table td .name {
+  display: inline-block;
+  line-height: 16px;
+  vertical-align: top;
+}
+.torrents table td .name a {
+  line-height: 32px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.torrents table td .name a.verified {
+  background: url('../images/checked_small.png') no-repeat center left;
+  padding-left: 20px;
+}
+.torrents table td .name a.unknown {
+  background: url('../images/denied_small.png') no-repeat center left;
+  padding-left: 20px;
+}
+.torrents table td .name .size {
+  display: inline-block;
+  color: #800080;
+  margin-left: 10px;
+}
+.torrents table td .name div a,
+.torrents table td .name div div {
+  display: inline-block;
+  padding-left: 25px;
+  padding-top: 3px;
+  margin: 10px 0 0;
+  font-weight: normal;
+}
+.torrents table td .name div a.group,
+.torrents table td .name div div.group {
+  margin-left: 20px;
+  background: url('../images/group_small.png') no-repeat center left;
+}
+.torrents table td .seeders {
+  color: #006600;
+  margin: 0 -8px 0 8px;
+}
+.torrents table td .seeders.none {
+  color: #660000;
+}
+.torrents table td .leechers {
+  color: #660000;
+  display: inline-block;
+}
+.torrents table td .completed {
+  color: #000066;
+  margin-right: 10px;
+}
+.torrents table tr:nth-child(odd) td {
+  background: #e8f4ff;
+}
+.torrents table tr:first-child td {
+  border-top: none;
+}
+.torrents .pager {
+  margin: 5px 0 0;
+}
+.torrents .pager h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.torrents .pager ul {
+  margin: 5px 0;
+  float: right;
+  list-style: none;
+}
+.torrents .pager ul li {
+  font-size: 13px;
+  display: inline-block;
+  border-right: 1px dotted #333333;
+  padding: 0 7px;
+  text-indent: -3px;
+}
+.torrents .pager ul li.red {
+  color: #660000;
+}
+.torrents .pager ul li.red a,
+.torrents .pager ul li.red a:hover,
+.torrents .pager ul li.red a:visited {
+  color: #660000;
+}

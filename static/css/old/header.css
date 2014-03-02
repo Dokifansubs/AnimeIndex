@@ -1,0 +1,101 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+header {
+  margin: 0px;
+  padding: 0;
+  background: url('../images/logo.png') 20px 10px no-repeat;
+  min-width: 430px;
+  /* End Not logged in section */
+}
+header aside {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  float: right;
+  text-align: left;
+  background: #aec9e7;
+  width: 250px;
+  padding: 10px;
+  margin: 20px 20px 0px;
+  /* Not logged in */
+}
+header aside a {
+  display: inline-block;
+}
+header aside h5 {
+  font-size: 1.2em;
+  margin: 0 10px 5px;
+  text-align: center;
+}
+header aside .uploaded,
+header aside .downloaded {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+header aside .usermenu {
+  float: left;
+}
+header aside .usermenu a {
+  padding: 0 10px;
+}
+header aside .userlogin {
+  float: right;
+}
+header aside .uploaded {
+  color: green;
+}
+header aside .downloaded {
+  color: red;
+}
+header aside .username {
+  display: inline-block;
+  margin-left: 2px;
+  width: 100px;
+}
+header aside .password {
+  display: inline-block;
+  margin-left: 0px;
+  width: 90px;
+}
+header aside .login-form {
+  margin: 5px 0 0;
+}
+header aside input[type=text] {
+  width: 100px;
+}
+header aside input[type=password] {
+  width: 90px;
+}
+header aside input[type=submit] {
+  width: 55px;
+  margin-right: -1px;
+  width: 43px;
+}
+header aside .user-forgot,
+header aside .user-register {
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+header aside .user-register {
+  float: right;
+}
+header ul {
+  list-style: none;
+  padding: 80px 10px 5px 10px;
+  border-bottom: 1px dotted #999999;
+}
+header ul li {
+  display: inline-block;
+  border-right: 1px solid #999999;
+}
+header ul li a {
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: bold;
+}

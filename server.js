@@ -11,6 +11,9 @@ function compile(str, path) {
   return stylus(str).set('filename', path).use(bootstrap()).use(nib()).import('nib');
 }
 
+//Expose some locals
+app.locals.moment = require('moment');
+
 //Core related middlehandlers
 app.use(express.compress());
 app.use(express.logger('dev'));

@@ -23,6 +23,8 @@
     "nib": "~1.0.2",
     "mysql": "~2.1.0",
     "redis": "~0.10.1",
-    "hiredis": "~0.1.16"
+    "hiredis": "~0.1.16",
+    "bootstrap3-stylus": "~0.1.0",
+    "moment": "~2.5.1"
   }
 }

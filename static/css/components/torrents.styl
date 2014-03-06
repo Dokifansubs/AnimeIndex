@@ -1,0 +1,102 @@
+sorting_border = 5px
+
+.torrent-header
+  background: $gray-lighter
+
+.torrent-header--size
+  text-align: right
+  padding-right: 15px !important
+
+.torrent-header--date
+  text-align: center
+
+.torrent-header--status
+  text-align: center
+
+.torrent-sorting
+  width: 0px
+  height: 0px
+  margin-left: 5px
+  border-left: sorting_border solid transparent
+  border-right: sorting_border solid transparent
+  display: inline-block
+
+.torrent-sorting--up
+  border-bottom: sorting_border solid black
+  
+  &.on
+    border-bottom: sorting_border solid $brand-success
+
+.torrent-sorting--down
+  border-top: sorting_border solid black
+
+  &.on
+    border-top: sorting_border solid $brand-success
+
+.torrent-category-prefix
+  background: darken($brand-info, 60%)
+  color: white
+  display: inline-block
+  padding: 4px 10px 3px 5px
+  border-radius(5px 0px 0px 5px)
+
+.torrent-category-prefix--anime,
+.torrent-category-suffix--anime
+  color: black
+  background: lighten($brand-success, 60%)
+
+.torrent-category-prefix--manga,
+.torrent-category-suffix--manga
+  color: black
+  background: lighten($brand-primary, 60%)
+
+.torrent-category-prefix--single
+  border-radius(5px)
+
+.torrent-category-suffix-seperator
+  margin-bottom: -6.2px
+  background: $brand-info
+  display: inline-block
+  border-top: 11.1px solid transparent
+  border-bottom: 11.1px solid transparent
+  border-left: 11px solid darken($brand-info, 60%)
+
+.torrent-category-suffix
+  padding: 4px 5px 3px
+  display: inline-block
+  border-radius(0px 5px 5px 0px)
+
+.torrent-category-suffix--unknown
+  color: white
+  background: $brand-danger
+
+.torrent-name
+  display: inline-block
+  line-height: 16px
+
+.torrent-size
+  display: inline-block
+  color: $brand-highlight
+  margin-left: 10px
+
+.torrent-date
+  color: darken($brand-success, 15%)
+
+  &.old
+    color: $gray-dark
+
+.torrent-seeders
+  color: darken($brand-success, 15%)
+  margin: 0 -8px 0 8px
+  
+  &.none
+    color: $brand-danger
+
+.torrent-leechers
+  color: $brand-danger
+  display: inline-block
+  margin-left: 2px
+
+.torrent-completed
+  color: darken($brand-info, 50%)
+  margin-right: 5px

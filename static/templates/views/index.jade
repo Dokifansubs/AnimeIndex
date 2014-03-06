@@ -8,10 +8,7 @@ block content
           a(href='/users/#{news_item.user_id}')= news_item.username
           |  on #{moment(news_item.created).format('YYYY/MM/DD')}
     .panel-body= news_item.content
-        //- a(href="/news/#{important_news._id}")= important_news.title
-        //- span.news-meta Posted by #{important_news.user.username} on #{important_news.created}
-      //- p!= important_news.content
-      ul.headlights
+  include ../inlines/torrents
         //- each item in news
         //-   li
         //-     a.title(href="/news/#{item._id}")= item.title
